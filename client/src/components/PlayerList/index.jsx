@@ -6,7 +6,6 @@ import Player from "../Player";
 class PlayerList extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = { playerData: props.playerData };
   }
 
@@ -17,7 +16,7 @@ class PlayerList extends Component {
     axios
       .get(`http://localhost:5000/api/players`)
       .then(res => {
-        console.log(res);
+        // console.log(res);
         this.setState = { playerData: res.data };
         this.props.setPlayerData(res.data);
       })
