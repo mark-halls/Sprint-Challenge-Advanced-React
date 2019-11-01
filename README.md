@@ -22,10 +22,32 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit the `ANSWERS.md` file to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Why would you use class component over function components (removing hooks from the question)?
+- [ ] Why would you use class component over function components (removing hooks
+      from the question)?
+
+  Class components give you access to the lifecycle methods which can give you
+  finer control over how your app is behaving
+
 - [ ] Name three lifecycle methods and their purposes.
-- [ ] What is the purpose of a custom hook?
-- [ ] Why is it important to test our apps?
+
+      constructor - allows to define state and pass in props to state. Also
+      access to super() for using the rest of the React.Component methods.
+
+      componentDidMount - runs after the first render. Allows us to run api calls and other logic that is dependant on the component being in the dom.
+
+      render - render displays our JSX into the dom. Behaves the same as return in functional components.
+
+* [ ] What is the purpose of a custom hook?
+
+      Custom hooks allow us to define stateful logic outside of the component to
+      allow us to reuse that code in multiple places. It can make a component more
+      readable and DRY.
+
+* [ ] Why is it important to test our apps?
+
+      We test our apps to ensure that future devs are able to make changes to our
+      current code without needing to know every edge case we have already
+      considered. It makes for a more robust application in the long run.
 
 ## Project Set Up
 
@@ -44,7 +66,7 @@ Follow these steps to set up and work on your project:
 
 Follow these steps for completing your project:
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo).
+- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo).
 - [ ] Add your Project Manager as a Reviewer on the Pull-request.
 - [ ] PM then will count the HW as done by merging the branch back into master.
 
