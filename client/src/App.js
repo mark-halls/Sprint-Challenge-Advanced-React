@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+
+import PlayerList from "./components/PlayerList";
+import Nav from "./components/Nav";
+
+import { useLocalStorage } from "./hooks/useLocalStorage";
+import { useDarkMode } from "./hooks/useDarkMode";
+
+import "./App.css";
 
 function App() {
+  const [playerData, setPlayerData] = useLocalStorage("playerData", []);
+  const [darkMode, setDarkMode] = useDarkMode(true);
+
+  useEffect(() => {
+    document.querySelector(".App").classList.toggle("dark");
+  }, [darkMode]);
+
+  const updateDarkMode = () => setDarkMode(!darkMode);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav toggleDark={updateDarkMode} />
+      <PlayerList playerData={playerData} setPlayerData={setPlayerData} />
     </div>
   );
 }
